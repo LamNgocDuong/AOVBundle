@@ -12,5 +12,14 @@ describe('Frequently Bought Together', () => {
     cy.get('.Avada-Offer__ButtonAddToCart').click()
     cy.get('.totals__total-value').should('have.text','2.934 VND')
 
+    //close cart drawer
+    cy.get('#CartDrawer > div.drawer__inner.gradient.color-scheme-1 > div.drawer__header > button > span > svg')
+        .click()
+
+    // After clicking, check that the text changes to "ITEM ADDED TO YOUR CART"
+    cy.wait(4000); // Chờ đợi hiệu ứng động hoặc yêu cầu API hoàn tất
+    cy.get('button').contains('ITEM ADDED TO YOUR CART').should('be.visible');
+
+
   })
 })
