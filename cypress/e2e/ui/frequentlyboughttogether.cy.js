@@ -1,7 +1,7 @@
 import {loginStore} from "../../support/loginUtils";
 import {STORE_PASS, STORE_URL} from "../../support/config";
 
-describe('Frequently Bought Together', () => {
+describe('Check cart after adding', () => {
   it('FBT', () => {
     loginStore(STORE_URL, STORE_PASS )
 
@@ -17,9 +17,12 @@ describe('Frequently Bought Together', () => {
         .click()
 
     // After clicking, check that the text changes to "ITEM ADDED TO YOUR CART"
-    cy.wait(4000); // Chờ đợi hiệu ứng động hoặc yêu cầu API hoàn tất
+    cy.wait(4000);
     cy.get('button').contains('ITEM ADDED TO YOUR CART').should('be.visible');
-
-
   })
+})
+
+describe('Check untick product', () => {
+
+
 })
