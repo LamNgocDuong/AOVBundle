@@ -23,6 +23,7 @@ describe('Check cart after adding', () => {
 })
 
 describe('Check untick product', () => {
-
-
+  it('FBT', () => {
+    loginStore(STORE_URL, STORE_PASS)
+  })
 })
