@@ -6,4 +6,15 @@ module.exports = defineConfig({
       // implement node event listeners here
     },
   },
+
+  retries: {
+    experimentalStrategy: 'detect-flake-and-pass-on-threshold',
+    experimentalOptions: {
+      maxRetries: 2,
+      passesRequired: 2,
+    },
+
+    openMode: true,
+    runMode: true,
+  },
 });
