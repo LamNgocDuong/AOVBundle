@@ -1,5 +1,5 @@
 import {loginStore} from "../../support/loginUtils";
-import {STORE_PASS, STORE_URL} from "../../support/config";
+import {ADDTOCART, STORE_PASS, STORE_URL} from "../../support/config";
 
 describe('Frequently bought together', () => {
   it('Check display inline frequently bought together', () => {
@@ -9,7 +9,6 @@ describe('Frequently bought together', () => {
 
     // Check class visibility
     cy.get('.Avada-Bundle-Branding-Container')
-        // Kiểm tra xem nó có hiển thị không
         // Cuộn đến phần tử
         .scrollIntoView()
         .then(($element) => {
@@ -38,7 +37,7 @@ describe('Frequently bought together', () => {
     cy.get('#Slide-template--16350353981517__featured-collection-1 > div > div').click()
 
     //check add to cart and value total price
-    cy.get('.Avada-Offer__ButtonAddToCart').click()
+    cy.get(ADDTOCART).click()
     cy.get('.totals__total-value').should('have.text', '2.934 VND')
 
     //close cart drawer
@@ -57,7 +56,7 @@ describe('Frequently bought together', () => {
     //untick product offer
     cy.get('#shopify-block-aov_bundle_upsell_offer_inline_RUaeyp > div > div > div > div > div > div > div.Avada-Fbt__WrapProductFooter > div.Avada-Fbt__ProductList > div:nth-child(2) > div.Avada-OfferItem__Checkbox > div > div')
         .click()
-    cy.get('.Avada-Offer__ButtonAddToCart').click()
+    cy.get(ADDTOCART).click()
     cy.get('.totals__total-value').should('have.text', '2.630 VND')
   })
 
@@ -67,7 +66,7 @@ describe('Frequently bought together', () => {
     //untick product trigger
     cy.get('#shopify-block-aov_bundle_upsell_offer_inline_RUaeyp > div > div > div > div > div > div > div.Avada-Fbt__WrapProductFooter > div.Avada-Fbt__ProductList > div:nth-child(1) > div.Avada-OfferItem__Checkbox > div')
         .click()
-    cy.get('.Avada-Offer__ButtonAddToCart').click()
+    cy.get(ADDTOCART).click()
     cy.get('.totals__total-value').should('have.text', '630 VND')
 
   })
