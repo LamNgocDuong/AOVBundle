@@ -9,7 +9,6 @@ describe('Frequently bought together', () => {
 
     // Check class visibility
     cy.get('.Avada-Bundle-Branding-Container')
-        // Kiểm tra xem nó có hiển thị không
         // Cuộn đến phần tử
         .scrollIntoView()
         .then(($element) => {
