@@ -1,5 +1,5 @@
 import {loginStore} from "../../support/loginUtils";
-import {ADDTOCART, STORE_PASS, STORE_URL} from "../../support/config";
+import {ADDTOCART, CHECK_BOX, STORE_PASS, STORE_URL} from "../../support/config";
 
 describe('Frequently bought together', () => {
   it('Check display inline frequently bought together', () => {
@@ -54,8 +54,7 @@ describe('Frequently bought together', () => {
     loginStore(STORE_URL, STORE_PASS)
     cy.get('#Slide-template--16350353981517__featured-collection-1 > div > div').click()
     //untick product offer
-    cy.get('#shopify-block-aov_bundle_upsell_offer_inline_RUaeyp > div > div > div > div > div > div > div.Avada-Fbt__WrapProductFooter > div.Avada-Fbt__ProductList > div:nth-child(2) > div.Avada-OfferItem__Checkbox > div > div')
-        .click()
+    cy.get(CHECK_BOX).eq(1).click()
     cy.get(ADDTOCART).click()
     cy.get('.totals__total-value').should('have.text', '2.630 VND')
   })
@@ -64,8 +63,7 @@ describe('Frequently bought together', () => {
     loginStore(STORE_URL, STORE_PASS)
     cy.get('#Slide-template--16350353981517__featured-collection-1 > div > div').click()
     //untick product trigger
-    cy.get('#shopify-block-aov_bundle_upsell_offer_inline_RUaeyp > div > div > div > div > div > div > div.Avada-Fbt__WrapProductFooter > div.Avada-Fbt__ProductList > div:nth-child(1) > div.Avada-OfferItem__Checkbox > div')
-        .click()
+    cy.get(CHECK_BOX).eq(0).click()
     cy.get(ADDTOCART).click()
     cy.get('.totals__total-value').should('have.text', '630 VND')
 
