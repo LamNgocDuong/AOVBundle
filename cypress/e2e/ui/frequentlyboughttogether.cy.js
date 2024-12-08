@@ -1,5 +1,5 @@
 import {loginStore} from "../../support/loginUtils";
-import {ADDTOCART, CHECK_BOX, REMOVE_PRODUCT, STORE_PASS, STORE_URL, TOTAL_VALUE} from "../../support/config";
+import { STORE_PASS, STORE_URL} from "../../support/config";
 
 const closeCartDrawn = '#CartDrawer > div.drawer__inner.gradient.color-scheme-1 > div.drawer__header > button > span > svg'
 
