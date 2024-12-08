@@ -27,7 +27,7 @@ describe('Frequently bought together', () => {
       // After clicking, check that the text changes to "ITEM ADDED TO YOUR CART"
       cy.get('button').contains('ITEM ADDED TO YOUR CART')
           .should('be.visible');
-    })
+  })
 
 
   it('Check cart after untick product offer', () => {
