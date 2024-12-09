@@ -1,9 +1,9 @@
-const BRANDING_AOV = '.Avada-Bundle-Branding-Container'
+export const BRANDING_AOV = '.Avada-Bundle-Branding-Container'
 export const ADDTOCART = '.Avada-Offer__ButtonAddToCart ';
 export const CHECK_BOX = ".Avada-Checkbox__Wrapper"
 export const TOTAL_VALUE = ".totals__total-value"
 
-class  productPage1 {
+class productPage {
     get brandingAOVBundle() {
         return cy.get(BRANDING_AOV)
     }
@@ -18,4 +18,4 @@ class  productPage1 {
     }
 
 }
-module.export = productPage1;
+module.exports = productPage;
