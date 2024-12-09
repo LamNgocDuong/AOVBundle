@@ -1,4 +1,4 @@
 class productBundle{
 
 }
-export default productBundle;
+module.exports = productBundle;
