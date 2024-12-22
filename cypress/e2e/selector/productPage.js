@@ -1,21 +1,26 @@
-export const BRANDING_AOV = '.Avada-Bundle-Branding-Container'
-export const ADDTOCART = '.Avada-Offer__ButtonAddToCart ';
-export const CHECK_BOX = ".Avada-Checkbox__Wrapper"
-export const TOTAL_VALUE = ".totals__total-value"
+const SELECTORS = {
+    BRANDING_AOV: '.Avada-Bundle-Branding-Container',
+    ADD_TO_CART: '.Avada-Offer__ButtonAddToCart',
+    CHECKBOX: '.Avada-Checkbox__Wrapper',
+    TOTAL_VALUE: '.totals__total-value'
+};
 
-class productPage {
-    get brandingAOVBundle() {
-        return cy.get(BRANDING_AOV)
-    }
-    get clickAddToCart() {
-        return cy.get(ADDTOCART).click()
-    }
-    get checkTotalValue() {
-        return cy.get(TOTAL_VALUE)
-    }
-    get checkBox() {
-        return cy.get(CHECK_BOX)
+class ProductPage {
+    brandingAOVBundle() {
+        return cy.get(SELECTORS.BRANDING_AOV);
     }
 
+    addToCart() {
+        return cy.get(SELECTORS.ADD_TO_CART).click();
+    }
+
+    getTotalValue() {
+        return cy.get(SELECTORS.TOTAL_VALUE);
+    }
+
+    getCheckbox() {
+        return cy.get(SELECTORS.CHECKBOX);
+    }
 }
-module.exports = productPage;
+
+export default ProductPage;
