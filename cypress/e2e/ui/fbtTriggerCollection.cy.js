@@ -19,8 +19,8 @@ describe('Frequently bought together', () => {
     });
 
     it('Check display inline frequently bought together with trigger condition is specific collection', () => {
-        prodPage.clickAddToCart();
-        prodPage.checkTotalValue.should('have.text', '1.455 VND');
+        prodPage.addToCart();
+        prodPage.totalValue().should('have.text', '1.455 VND');
 
         cy.get(CART_DRAWER_CLOSE).click();
         cy.get('button')
@@ -29,26 +29,26 @@ describe('Frequently bought together', () => {
     });
 
     it('Check untick product offer', () => {
-       prodPage.checkBox.eq(1).click()
-       prodPage.clickAddToCart()
-       prodPage.checkTotalValue.should('have.text', '630 VND')
+       prodPage.checkBox().eq(1).click()
+       prodPage.addToCart()
+       prodPage.totalValue().should('have.text', '630 VND')
     })
 
     it('Check untick product trigger', () => {
-       prodPage.checkBox.eq(0).click()
-       prodPage.clickAddToCart()
-       prodPage.checkTotalValue.should('have.text', '1.025 VND')
+       prodPage.checkBox().eq(0).click()
+       prodPage.addToCart()
+       prodPage.totalValue().should('have.text', '1.025 VND')
     })
 
     it('Check delete product offer in cart', () => {
-       prodPage.clickAddToCart()
+       prodPage.addToCart()
        cy.get(CART_REMOVE_BUTTONS.FIRST_ITEM).click()
-           prodPage.checkTotalValue.should('have.text', '630 VND')
+           prodPage.totalValue().should('have.text', '630 VND')
     })
 
     it('Check delete product trigger in cart', () => {
-       prodPage.clickAddToCart()
+       prodPage.addToCart()
        cy.get(CART_REMOVE_BUTTONS.SECOND_ITEM).click()
-           prodPage.checkTotalValue.should('have.text', '1.025 VND')
+           prodPage.totalValue().should('have.text', '1.025 VND')
     })
 })
