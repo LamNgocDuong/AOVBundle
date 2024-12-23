@@ -1,6 +1,6 @@
 import {loginStore} from "../../support/loginUtils";
 import { STORE_PASS, STORE_URL} from "../../support/config";
-import productPage from '../selector/productPage';
+import ProductPage from '../selector/productPage';
 
 const PRODUCT_URL = 'products/the-archived-snowboard';
 const CART_DRAWER_CLOSE = '#CartDrawer > div.drawer__inner.gradient.color-scheme-1 > div.drawer__header > button > span > svg';
@@ -9,13 +9,13 @@ const CART_REMOVE_BUTTONS = {
   SECOND_ITEM: '#CartDrawer-Remove-2'
 };
 
+const prodPage = new ProductPage();
+
 describe('Frequently bought together', () => {
-    let prodPage;
 
     beforeEach(() => {
         loginStore(STORE_URL, STORE_PASS);
         cy.visit(STORE_URL + PRODUCT_URL);
-        prodPage = new productPage();
     });
 
     it('Check display inline frequently bought together with trigger condition is specific collection', () => {
