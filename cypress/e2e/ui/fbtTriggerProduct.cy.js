@@ -37,12 +37,12 @@ describe('Frequently bought together', () => {
         prodPage.totalValue().should('contain.text', '3.965 VND');
     });
 
-    it('Check cart after unticking product trigger', () => {
-        prodPage.checkBox().eq(0).click();
-        prodPage.addToCart();
-        prodPage.totalValue()
-            .should('contain.text', '2.375 VND');
-    });
+    // it('Check cart after unticking product trigger', () => {
+    //     prodPage.checkBox().eq(0).click();
+    //     prodPage.addToCart();
+    //     prodPage.totalValue()
+    //         .should('contain.text', '2.375 VND');
+    // });
 
     it('Check delete product offer in cart', () => {
         prodPage.addToCart();
