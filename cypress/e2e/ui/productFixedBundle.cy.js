@@ -48,7 +48,7 @@ describe('Product fixed bundle', () => {
         prodBundle.totalValue().should('have.text','3.260 VND')
     })
 
-    it.only('Check checkout bundle process', () => {
+    it('Check checkout bundle process', () => {
         prodBundle.selectVariant(0, 1); 
         prodBundle.selectVariant(1, 2); 
         prodBundle.addToCart();
