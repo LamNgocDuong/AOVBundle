@@ -5,7 +5,6 @@ const SELECTORS = {
     VARIANT_OPTIONS: '#variant-selects-template--16350354145357__main fieldset',
     CART_ITEM_VARIANT: '.cart-item__details .product-option',
     CART_ITEMS: '.cart-items',
-    BUNDLE_ITEMS: '.product-bundle__items'
 }
 
 class ProductBundle {
@@ -41,9 +40,6 @@ class ProductBundle {
         });
     }
 
-    getBundleItems() {
-        return cy.get(SELECTORS.BUNDLE_ITEMS);
-    }
 }
 
 export default ProductBundle;
