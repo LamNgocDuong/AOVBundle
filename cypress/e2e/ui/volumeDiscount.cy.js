@@ -5,20 +5,26 @@ import ProductPage from '../selector/productPage';
 const TEST_CONFIG = {
     URLS: {
         PRODUCT1: 'products/the-complete-snowboard'
-    },
-    VOLUME_TITLE: 'Avada-VolumeTitle'
+    }
 }
-const prodPage = new ProductPage();
+const productPage = new ProductPage();
 
-describe('Frequently bought together', () => {
+describe('Volume Discount Tests', () => {
 
-    beforeEach(() => {
+    before(() => {
         loginStore(STORE_URL, STORE_PASS);
-        cy.visit(STORE_URL + PRODUCT_URL);
     })
-    describe('Volume table with trigger = specific product', () => {
-        it('Check display inline table volume discount' , () => {
-            cy.visit(TEST_CONFIG.URLS.PRODUCT1)
+    describe('Volume discount table for specific product', () => {
+        beforeEach(() => {
+            cy.visit(`${STORE_URL}${TEST_CONFIG.URLS.PRODUCT1}`);
+        })
+        it('should display volume discount table with correct title', () => {
+            productPage.getVolumeTitle()
+                .should('be.visible')
+                .and('contain.text', 'Get more, save more');
+        })
+        it.only('Select variant and add product to cart', () => {
+            productPage.getVariantPopupTrigger()
         })
     })
 })
