@@ -6,7 +6,8 @@ const SELECTORS = {
     VOLUME_TITLE: '.Avada-VolumeTitle',
     VARIANT_POPUP_TRIGGER: '.Avada-Offer__VariantPopupTrigger',
     VARIANT_OPTION: '.Avada-VariantOptionValue',
-    CONFIRM_VARIANT_VOLUME: '.Avada-ConfirmButton'
+    CONFIRM_VARIANT_VOLUME: '.Avada-ConfirmButton',
+    CART_ICON: '.header__icon--cart'
 };
 
 class ProductPage {
@@ -55,7 +56,12 @@ class ProductPage {
             .should('be.visible')
             .click();
     }
-     
+
+    getCartIcon() {
+        return cy.get(SELECTORS.CART_ICON)
+            .should('be.visible')
+            .click();
+    }
 }
 
 export default ProductPage;
