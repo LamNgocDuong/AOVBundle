@@ -4,7 +4,9 @@ const SELECTORS = {
     CHECKBOX: '.Avada-Checkbox__Wrapper',
     TOTAL_VALUE: '.totals__total-value',
     VOLUME_TITLE: '.Avada-VolumeTitle',
-    VARIANT_POPUP_TRIGGER: '.Avada-Offer__VariantPopupTrigger'
+    VARIANT_POPUP_TRIGGER: '.Avada-Offer__VariantPopupTrigger',
+    VARIANT_OPTION: '.Avada-VariantOptionValue',
+    CONFIRM_VARIANT_VOLUME: '.Avada-ConfirmButton'
 };
 
 class ProductPage {
@@ -30,12 +32,30 @@ class ProductPage {
             .should('be.visible');
     }
 
-    getVariantPopupTrigger() {
+    getVariantPopupTriggerByIndex(index) {
         return cy.get(SELECTORS.VARIANT_POPUP_TRIGGER)
+            .eq(index)
             .scrollIntoView()
             .should('be.visible')
             .click();
     }
+
+    // Chọn variant theo text
+    selectVariantByText(variantText) {
+        return cy.get(SELECTORS.VARIANT_OPTION)
+            .contains(variantText)
+            .scrollIntoView()
+            .should('be.visible')
+            .click();
+    }
+
+    confirmVariantVolume() {
+        return cy.get(SELECTORS.CONFIRM_VARIANT_VOLUME)
+            .scrollIntoView()
+            .should('be.visible')
+            .click();
+    }
+     
 }
 
 export default ProductPage;
