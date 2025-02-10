@@ -5,6 +5,8 @@ const SELECTORS = {
     VARIANT_OPTIONS: '#variant-selects-template--16350354145357__main fieldset',
     CART_ITEM_VARIANT: '.cart-item__details .product-option',
     CART_ITEMS: '.cart-items',
+    CHILD_PRODUCT_TITLE: '.Avada-OfferItem__Title',
+
 }
 
 class ProductBundle {
@@ -38,6 +40,11 @@ class ProductBundle {
             });
             return variants;
         });
+    }
+
+    getInlineChildProduct() {
+        return cy.get(SELECTORS.CHILD_PRODUCT_TITLE)
+            .should('be.visible')
     }
 
 }

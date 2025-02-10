@@ -22,10 +22,6 @@ describe('Frequently bought together', () => {
         prodPage.addToCart();
         prodPage.totalValue().should('have.text', '4.505 VND');
 
-        cy.get(CART_DRAWER_CLOSE)
-            .should('be.visible')
-            .click();
-
         cy.get('button')
             .contains('ITEM ADDED TO YOUR CART')
             .should('be.visible');
@@ -34,6 +30,7 @@ describe('Frequently bought together', () => {
     it('Check cart after untick product offer', () => {
         prodPage.checkBox().eq(1).click();
         prodPage.addToCart();
+        prodPage.cartItem()
         prodPage.totalValue().should('contain.text', '3.965 VND');
     });
 
@@ -46,12 +43,14 @@ describe('Frequently bought together', () => {
 
     it('Check delete product offer in cart', () => {
         prodPage.addToCart();
+        prodPage.cartItem()
         cy.get(CART_REMOVE_BUTTONS.FIRST_ITEM).click();
         prodPage.totalValue().should('contain.text', '3.582 VND');
     });
 
     it('Check delete product trigger in cart', () => {
         prodPage.addToCart();
+        prodPage.cartItem()
         cy.get(CART_REMOVE_BUTTONS.FOURTH_ITEM).click();
         prodPage.totalValue().should('contain.text', '2.375 VND');
     });
